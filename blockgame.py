@@ -48,6 +48,7 @@ while endflag == 0:
         #キー入力の取得
         press = pygame.key.get_pressed()
         x = paddle.centerx
+        x, y = pygame.mouse.get_pos()
         if(press[pygame.K_LEFT ]): x -= 8
         if(press[pygame.K_RIGHT ]): x += 8
         if x >= (paddlew / 2) and x <= (WIDTH - (paddlew / 2)):
