@@ -123,11 +123,10 @@ def main():
 
                 if(press[pygame.K_r ]):
                     main()
+                    pygame.quit()
 
             myclock.tick(60)
             pygame.display.flip()
             
-
 main()
 pygame.quit()
-
