@@ -37,10 +37,17 @@ while endflag == 0:
     paddle = pygame.Rect(x - (paddlew / 2),y - (paddleh / 2), paddlew,paddleh)
     #ブロックを作る
     blocks = []
+    b = [0,0,0,0,0,0,0,0,0,0,
+         0,0,0,0,0,0,0,0,0,0,
+         0,0,0,0,0,0,0,0,0,0,
+         0,0,0,0,0,0,0,0,0,0,
+         0,0,0,0,0,0,1,0,0,0]
     for i in range(50):
-        x = (i % 10) * (blockw + 4) + 64
-        y = int(i / 10) * (blockh + 4) + 64
-        blocks.append(pygame.Rect(x, y, blockw, blockh))
+        if b[i] == 1:
+            x = (i % 10) * (blockw + 4) + 64
+            y = int(i / 10) * (blockh + 4) + 64
+            blocks.append(pygame.Rect(x, y, blockw, blockh))
+    
     gameover = 0
     while endflag == 0:
         for event in pygame.event.get():
@@ -94,12 +101,22 @@ while endflag == 0:
             pygame.draw.rect(screen,color,block)
         """パドルの描写"""
         pygame.draw.rect(screen,WHITE,paddle)
-        """ゲームオーバー時の処理"""
+        """ボールの描画"""
         pygame.draw.circle(screen,WHITE,(int(ballx), int(bally)), br)
+        """ゲームオーバー時の処理"""
         if gameover > 0:
             imagetext = myfont.render("GAME OVER", True, WHITE)
             screen.blit(imagetext, (180, 300))
             if gameover > 200: break
+        
+        
+        if len(blocks) == 0:
+            imagetext = myfont.render("CLEAR", True, WHITE)
+            screen.blit(imagetext, (180, 300))
+        
+        
+        
+        
         myclock.tick(60)
         pygame.display.flip()
 pygame.quit()
