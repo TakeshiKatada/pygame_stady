@@ -30,8 +30,8 @@ endflag = 0
 while endflag == 0:
     ballx = WIDTH / 2
     bally = HEIGHT - 170
-    bx1 = 2
-    by1 = -2.5
+    bx1 = 10
+    by1 = -10
     x = WIDTH / 2
     y = HEIGHT - 64
     paddle = pygame.Rect(x - (paddlew / 2),y - (paddleh / 2), paddlew,paddleh)
