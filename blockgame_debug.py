@@ -113,6 +113,9 @@ while endflag == 0:
         if len(blocks) == 0:
             imagetext = myfont.render("CLEAR", True, WHITE)
             screen.blit(imagetext, (180, 300))
+            bx1 = 0
+            by1 = 0
+            
         
         
         
